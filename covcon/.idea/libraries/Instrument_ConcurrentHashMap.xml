@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_ConcurrentHashMap">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/ConcurrentHashMap/Instrument_ConcurrentHashMap.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

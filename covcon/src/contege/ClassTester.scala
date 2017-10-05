@@ -1,36 +1,15 @@
 package contege
 
-import java.io.BufferedReader
-import java.io.ByteArrayOutputStream
-import java.io.FileReader
-import java.io.PrintStream
-import java.lang.reflect.InvocationTargetException
-import java.util.ArrayList
-import java.util.Date
+import cfp.{CFPDetection, NextCFP, PotentialCFPs}
+import contege.seqexec.jpf.{JPFFirstSequenceExecutor, TSOracleJPFFirst}
+import contege.seqexec.reflective.{SequenceExecutor, SequenceManager, TSOracleNormalExec}
+import contege.seqexec.{DeadlockMonitor, TestPrettyPrinter}
+import contege.seqgen._
+import java.io.{BufferedReader, File, FileReader}
+import java.util.{ArrayList, Date}
+import javamodel.util.TypeResolver
 import scala.collection.JavaConversions._
 import scala.collection.mutable.Map
-import scala.collection.mutable.Set
-import contege.seqexec.DeadlockMonitor
-import contege.seqgen.InstantiateCutTask
-import contege.seqgen.Prefix
-import contege.seqgen.StateChangerTask
-import contege.seqgen.Suffix
-import contege.seqgen.SuffixGen
-import contege.seqgen.TypeManager
-import javamodel.util.TypeResolver
-import contege.seqexec.TestPrettyPrinter
-import contege.seqexec.jpf.JPFFirstSequenceExecutor
-import contege.seqexec.jpf.TSOracleJPFFirst
-import java.io.File
-import contege.seqexec.reflective.TSOracleNormalExec
-import contege.seqexec.reflective.SequenceManager
-import contege.seqexec.reflective.SequenceExecutor
-import cfp.PotentialCFPs
-import cfp.NextCFP
-import cfp.CFPDetection
-import java.util.Calendar
-import contege.seqgen.TypeManager
-import contege.seqexec.reflective.SequenceManager
 
 class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, putJarPath: String, envTypes: ArrayList[String],
   random: Random, finalizer: Finalizer, cutMethodsToTest1: Seq[MethodAtom], cutMethodsToTest2: Seq[MethodAtom], seed: Int, seedPrefix: Map[String, Prefix], typeProvider: TypeManager, cutCallsPerSeq : Int) {

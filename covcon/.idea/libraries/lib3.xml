@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/PeriodAxis/lib/clinit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/PeriodAxis/lib/jcommon-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

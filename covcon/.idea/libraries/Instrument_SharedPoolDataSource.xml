@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_SharedPoolDataSource">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/SharedPoolDataSource/Instrument_SharedPoolDataSource.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

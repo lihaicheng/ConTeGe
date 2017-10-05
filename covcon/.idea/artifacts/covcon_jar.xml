@@ -1,0 +1,91 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="covcon:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/covcon_jar</output-path>
+    <root id="archive" name="covcon.jar">
+      <element id="module-output" name="covcon" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/NumberAxis/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/NumberAxis/lib/jcommon-0.8.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XYPlot/Instrument_XYPlot.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/NumberAxis/Instrument_NumberAxis.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/xom-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/kxml2-2.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/xmlpull-1.1.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/kxml2-min-2.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/jdom-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/stax-1.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/stax-api-1.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/joda-time-1.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/xpp3_min-1.1.4c.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/cglib-nodep-2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/json-20080701.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/dom4j-1.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/jettison-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/wstx-asl-3.2.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/TimeSeries/jar/timeseries.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/TimeSeries/lib/jcommon-0.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/TimeSeries/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PerUserPoolDataSource/jar/pupds.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/BufferedInputStream/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PeriodAxis/Instrument_PeriodAxis.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/Logger/jar/logger.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SharedPoolDataSource/Instrument_SharedPoolDataSource.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XYSeries/jar/xyseries.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PerUserPoolDataSource/Instrument_PerUserPoolDataSource.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/Logger/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XYPlot/jar/xyplot.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SynchronizedMap/Instrument_SynchronizedMap.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/Day/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/Day/lib/jcommon-1.0.16.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PeriodAxis/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PeriodAxis/lib/jcommon-1.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/TimeSeries/Instrument_TimeSeries.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/Day/Instrument_Day.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/ConcurrentHashMap/jar/chmap.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/testSkeleton.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/bcel-5.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/scala-lib-2.10.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/asm-tree-4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jpf.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/asm-4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/commons-io-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/tools.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SynchronizedMap/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XYPlot/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XYPlot/lib/jcommon-1.0.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/Day/jar/day.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/BufferedInputStream/Instrument_BufferedInputStream.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PeriodAxis/jar/periodaxis.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/Instrument_XStream.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/StringBuffer/jar/StringBuffer.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XStream/jar/xstream.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/Logger/Instrument_Logger.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/BufferedInputStream/jar/bis.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/ConcurrentHashMap/Instrument_ConcurrentHashMap.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SharedPoolDataSource/lib/jta.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SharedPoolDataSource/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SharedPoolDataSource/lib/commons-pool-1.5.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SharedPoolDataSource/lib/commons-collections-3.2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SynchronizedMap/jar/syncmap.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XYSeries/lib/jcommon-0.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XYSeries/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/StringBuffer/Instrument_StringBuffer.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="D:/scala/lib/scala-actors-migration.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="D:/scala/lib/scala-actors.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="D:/scala/lib/scala-library.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="D:/scala/lib/scala-reflect.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="D:/scala/lib/scala-swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/XYSeries/Instrument_XYSeries.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ownLibs/cfp_detection.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ownLibs/covcon.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ownLibs/javaModel.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ownLibs/clinitRewriter.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PerUserPoolDataSource/lib/jta.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PerUserPoolDataSource/lib/commons-collections-3.2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PerUserPoolDataSource/lib/commons-pool-1.5.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/PerUserPoolDataSource/lib/clinit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/NumberAxis/jar/numberaxis.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/benchmarks/instrumented/SharedPoolDataSource/jar/spds.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

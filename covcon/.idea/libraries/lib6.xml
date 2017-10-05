@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="lib6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/xom-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/kxml2-2.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/xmlpull-1.1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/kxml2-min-2.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/jdom-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/stax-1.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/stax-api-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/joda-time-1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/xpp3_min-1.1.4c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/cglib-nodep-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/clinit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/json-20080701.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/jettison-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/lib/wstx-asl-3.2.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

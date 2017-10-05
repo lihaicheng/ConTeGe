@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="scala-sdk-2.10.6" level="application" />
+    <orderEntry type="library" exported="" name="ownLibs" level="project" />
+    <orderEntry type="library" exported="" name="bis" level="project" />
+    <orderEntry type="library" exported="" name="chmap" level="project" />
+    <orderEntry type="library" exported="" name="clinit" level="project" />
+    <orderEntry type="library" exported="" name="clinit1" level="project" />
+    <orderEntry type="library" exported="" name="clinit2" level="project" />
+    <orderEntry type="library" exported="" name="day" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_BufferedInputStream" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_ConcurrentHashMap" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_Day" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_Logger" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_NumberAxis" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_PeriodAxis" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_PerUserPoolDataSource" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_SharedPoolDataSource" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_StringBuffer" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_SynchronizedMap" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_TimeSeries" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_XStream" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_XYPlot" level="project" />
+    <orderEntry type="library" exported="" name="Instrument_XYSeries" level="project" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="library" exported="" name="lib1" level="project" />
+    <orderEntry type="library" exported="" name="lib2" level="project" />
+    <orderEntry type="library" exported="" name="lib3" level="project" />
+    <orderEntry type="library" exported="" name="lib4" level="project" />
+    <orderEntry type="library" exported="" name="lib5" level="project" />
+    <orderEntry type="library" exported="" name="lib6" level="project" />
+    <orderEntry type="library" exported="" name="lib7" level="project" />
+    <orderEntry type="library" exported="" name="lib8" level="project" />
+    <orderEntry type="library" exported="" name="lib9" level="project" />
+    <orderEntry type="library" exported="" name="logger" level="project" />
+    <orderEntry type="library" exported="" name="numberaxis" level="project" />
+    <orderEntry type="library" exported="" name="periodaxis" level="project" />
+    <orderEntry type="library" exported="" name="pupds" level="project" />
+    <orderEntry type="library" exported="" name="spds" level="project" />
+    <orderEntry type="library" exported="" name="StringBuffer" level="project" />
+    <orderEntry type="library" exported="" name="syncmap" level="project" />
+    <orderEntry type="library" exported="" name="timeseries" level="project" />
+    <orderEntry type="library" exported="" name="xstream" level="project" />
+    <orderEntry type="library" exported="" name="xyplot" level="project" />
+    <orderEntry type="library" exported="" name="xyseries" level="project" />
+  </component>
+</module>

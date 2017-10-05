@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_TimeSeries">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/TimeSeries/Instrument_TimeSeries.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

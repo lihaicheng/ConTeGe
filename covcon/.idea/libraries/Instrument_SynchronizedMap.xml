@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_SynchronizedMap">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/SynchronizedMap/Instrument_SynchronizedMap.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

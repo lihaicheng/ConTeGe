@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="syncmap">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/SynchronizedMap/jar/syncmap.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

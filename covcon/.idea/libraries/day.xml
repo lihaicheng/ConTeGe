@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="day">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/Day/jar/day.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_XYSeries">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XYSeries/Instrument_XYSeries.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

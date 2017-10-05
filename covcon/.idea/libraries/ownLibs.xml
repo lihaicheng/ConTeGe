@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="ownLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ownLibs/cfp_detection.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ownLibs/covcon.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ownLibs/javaModel.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ownLibs/clinitRewriter.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pupds">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/PerUserPoolDataSource/jar/pupds.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

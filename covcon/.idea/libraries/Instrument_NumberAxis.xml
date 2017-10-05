@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_NumberAxis">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/NumberAxis/Instrument_NumberAxis.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

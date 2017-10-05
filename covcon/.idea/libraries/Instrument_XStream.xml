@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_XStream">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XStream/Instrument_XStream.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

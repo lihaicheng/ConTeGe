@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/TimeSeries/lib/jcommon-0.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/TimeSeries/lib/clinit.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

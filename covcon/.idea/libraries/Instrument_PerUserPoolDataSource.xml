@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_PerUserPoolDataSource">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/PerUserPoolDataSource/Instrument_PerUserPoolDataSource.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

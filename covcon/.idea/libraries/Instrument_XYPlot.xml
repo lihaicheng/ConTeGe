@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Instrument_XYPlot">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/XYPlot/Instrument_XYPlot.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

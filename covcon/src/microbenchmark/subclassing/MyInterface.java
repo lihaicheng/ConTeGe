@@ -2,8 +2,8 @@ package microbenchmark.subclassing;
 
 public interface MyInterface {
 
-	public int computeInt();
+	int computeInt();
 		
-	public void changeInternalState(int i);
+	void changeInternalState(int i);
 	
 }
