@@ -1,0 +1,28 @@
+
+==== Found a thread safety violation! ====
+Sequential prefix:
+final java11.io.StringBufferInputStream var0 = new java11.io.StringBufferInputStream((java.lang.String) "h");
+final java11.io.BufferedInputStream var1 = new java11.io.BufferedInputStream((java11.io.InputStream) var0);
+
+Concurrent suffixes:
+
+var1.close();
+var1.close();
+
+vs.
+
+final int var2 = var1.available();
+var1.close();
+
+Exception Found : java.lang.NullPointerException
+	at java11.io.BufferedInputStream.available(BufferedInputStream.java:524)
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at contege.MethodAtom$$anonfun$1.apply(Atom.scala:58)
+	at contege.MethodAtom$$anonfun$1.apply(Atom.scala:54)
+	at contege.seqexec.reflective.TimedExecutionThread.run(TimedExecutionThread.scala:18)
+
+null
+
+Time (seconds): 10

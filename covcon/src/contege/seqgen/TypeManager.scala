@@ -130,6 +130,7 @@ class TypeManager(cut: String, envClasses: Seq[String], val putClassLoader: Clas
 	}
 	
 	def constructors(clsName: String): Seq[ConstructorAtom] = {
+		//得到cut的类，作为参数，创建一个匿名ClassReader，调用ClassReader的readConstructorAtoms方法
 		new ClassReader(Class.forName(clsName, true, putClassLoader)).readConstructorAtoms		
 	}
 	

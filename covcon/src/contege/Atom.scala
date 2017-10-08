@@ -17,11 +17,13 @@ import contege.seqexec.reflective.Normal
 import contege.seqexec.reflective.TimeoutRunner
 
 /**
- * Action to be executed (e.g., a method call or a field access).
- */
-abstract class Atom(val receiverType: Class[_]) {
-
-	def execute(receiver: Object, args: Seq[Object], downcastCls: Option[Class[_]]): ExecutionResult	
+  * Action to be executed (e.g., a method call or a field access).
+  * 要执行的操作(例如:方法调用或字段访问)。
+  */
+abstract class Atom(val receiverType: Class[_])
+{
+	
+	def execute(receiver: Object, args: Seq[Object], downcastCls: Option[Class[_]]): ExecutionResult
 	
 	def nbParams: Int
 	
@@ -34,7 +36,7 @@ abstract class Atom(val receiverType: Class[_]) {
 	def methodName: String
 	
 	def isStatic: Boolean
-
+	
 	def isConstructor: Boolean
 	
 	def isMethod: Boolean
@@ -48,27 +50,36 @@ abstract class Atom(val receiverType: Class[_]) {
 	def adaptToReceiverType(t: String, putClassLoader: ClassLoader, config: Config): Atom
 }
 
-class MethodAtom(receiverType: Class[_], val method: Method) extends Atom(receiverType) {
-    
-	override def execute(receiver: Object, args: Seq[Object], downcastCls: Option[Class[_]]): ExecutionResult = {
-		val result = TimeoutRunner.runWithTimeout(() => {
-			try {
+class MethodAtom(receiverType: Class[_], val method: Method) extends Atom(receiverType)
+{
+	
+	override def execute(receiver: Object, args: Seq[Object], downcastCls: Option[Class[_]]): ExecutionResult =
+	{
+		val result = TimeoutRunner.runWithTimeout(() =>
+		{
+			try
+			{
 				if (receiver == null && !isStatic) Exception(NullAsReceiverException)
-				else {
-					val r = method.invoke(receiver, args:_*)
-					if (downcastCls.isDefined) {
+				else
+				{
+					val r = method.invoke(receiver, args: _*)
+					if (downcastCls.isDefined)
+					{
 						var casted = downcastCls.get.cast(r)
 						Normal(casted.asInstanceOf[Object])
-					} else {
+					}
+					else
+					{
 						Normal(r)
 					}
-				}			
-			} catch {
+				}
+			} catch
+			{
 				case t: InvocationTargetException => Exception(t)
 				case iae: IllegalAccessException => Exception(iae)
 				case cce: ClassCastException => Exception(cce)
-			}		
-		}, method.toString)			
+			}
+		}, method.toString)
 		result
 	}
 	
@@ -76,16 +87,18 @@ class MethodAtom(receiverType: Class[_], val method: Method) extends Atom(receiv
 	
 	override def paramTypes = getParameterTypes(method, receiverType)
 	
-	override def returnType: Option[String] = {
+	override def returnType: Option[String] =
+	{
 		val t = getReturnType(method, receiverType)
-		if (t == "void") None else Some(t)
+		if (t == "void") None
+		else Some(t)
 	}
 	
 	override def declaringType = method.getDeclaringClass.getName
-		
+	
 	override def methodName = method.getName
 	
-	override def signature = receiverType.getName+"."+method.getName+paramTypes.mkString("(",",",")")
+	override def signature = receiverType.getName + "." + method.getName + paramTypes.mkString("(", ",", ")")
 	
 	override def isStatic = Modifier.isStatic(method.getModifiers)
 	
@@ -95,27 +108,33 @@ class MethodAtom(receiverType: Class[_], val method: Method) extends Atom(receiv
 	
 	override def isField = false
 	
-	override def adaptToReceiverType(t: String, putClassLoader: ClassLoader, config: Config) = {
-	    val newCls = Class.forName(t, true, putClassLoader)
-	    val newMethod = newCls.getMethods.find(m => m.getName == method.getName && m.getParameterTypes.map(_.getName).toList == method.getParameterTypes.map(_.getName).toList).get
-	    val result = new MethodAtom(newCls, newMethod)
-	    assert(paramTypes == result.paramTypes && returnType == result.returnType, "\nOld method: "+method+"\nNew method: "+newMethod)
-	    result
+	override def adaptToReceiverType(t: String, putClassLoader: ClassLoader, config: Config) =
+	{
+		val newCls = Class.forName(t, true, putClassLoader)
+		val newMethod = newCls.getMethods.find(m => m.getName == method.getName && m.getParameterTypes.map(_.getName).toList == method.getParameterTypes.map(_.getName).toList).get
+		val result = new MethodAtom(newCls, newMethod)
+		assert(paramTypes == result.paramTypes && returnType == result.returnType, "\nOld method: " + method + "\nNew method: " + newMethod)
+		result
 	}
 }
 
-class ConstructorAtom(receiverType: Class[_], val constr: Constructor[_]) extends Atom(receiverType) {
-	override def execute(receiver: Object, args: Seq[Object], downcastCls: Option[Class[_]]): ExecutionResult = {
+class ConstructorAtom(receiverType: Class[_], val constr: Constructor[_]) extends Atom(receiverType)
+{
+	override def execute(receiver: Object, args: Seq[Object], downcastCls: Option[Class[_]]): ExecutionResult =
+	{
 		assert(receiver == null)
-		val result = TimeoutRunner.runWithTimeout(() => {
-			try {
-				val r = constr.newInstance(args:_*)
+		val result = TimeoutRunner.runWithTimeout(() =>
+		{
+			try
+			{
+				val r = constr.newInstance(args: _*)
 				Normal(r.asInstanceOf[Object])
-			} catch {
+			} catch
+			{
 				case t: InvocationTargetException => Exception(t)
 				case iae: IllegalAccessException => Exception(iae)
-			}		
-		}, constr.toString)			
+			}
+		}, constr.toString)
 		result
 	}
 	
@@ -128,54 +147,60 @@ class ConstructorAtom(receiverType: Class[_], val constr: Constructor[_]) extend
 	override def declaringType = constr.getDeclaringClass.getName
 	
 	override def methodName = ""
-		
+	
 	override def isStatic = false
 	
 	override def isConstructor = true
 	
 	override def isMethod = false
-
+	
 	override def isField = false
 	
-	override def signature = receiverType.getName+paramTypes.mkString("(",",",")")
+	override def signature = receiverType.getName + paramTypes.mkString("(", ",", ")")
 	
-	override def adaptToReceiverType(t: String, putClassLoader: ClassLoader, config: Config) = {
-	    val subclassTesterConfig = config.asInstanceOf[SubclassTesterConfig]
-	    val currentParamTypes = constr.getParameterTypes.map(_.getName).mkString("(",",",")")
-	    val expectedParamTypes = subclassTesterConfig.constructorMap.destParams(currentParamTypes)
-	    val newCls = Class.forName(t, true, putClassLoader)
-	    val newConstr = newCls.getConstructors.find(c => c.getParameterTypes.map(_.getName).mkString("(",",",")") == expectedParamTypes).get
-	    val result = new ConstructorAtom(newCls, newConstr)
-	    result
+	override def adaptToReceiverType(t: String, putClassLoader: ClassLoader, config: Config) =
+	{
+		val subclassTesterConfig = config.asInstanceOf[SubclassTesterConfig]
+		val currentParamTypes = constr.getParameterTypes.map(_.getName).mkString("(", ",", ")")
+		val expectedParamTypes = subclassTesterConfig.constructorMap.destParams(currentParamTypes)
+		val newCls = Class.forName(t, true, putClassLoader)
+		val newConstr = newCls.getConstructors.find(c => c.getParameterTypes.map(_.getName).mkString("(", ",", ")") == expectedParamTypes).get
+		val result = new ConstructorAtom(newCls, newConstr)
+		result
 	}
 }
 
-class FieldGetterAtom(receiverType: Class[_], val field: Field) extends Atom(receiverType) {
-	override def execute(receiver: Object, args: Seq[Object], downcastCls: Option[Class[_]]): ExecutionResult = {
-		try {
+class FieldGetterAtom(receiverType: Class[_], val field: Field) extends Atom(receiverType)
+{
+	override def execute(receiver: Object, args: Seq[Object], downcastCls: Option[Class[_]]): ExecutionResult =
+	{
+		try
+		{
 			if (receiver == null && !isStatic) return Exception(NullAsReceiverException)
 			val r = field.get(receiver)
 			return Normal(r)
-		} catch {
+		} catch
+		{
 			case t: InvocationTargetException => Exception(t)
 			case iae: IllegalAccessException => Exception(iae)
-		}		
+		}
 	}
 	
 	override def nbParams = 0
 	
 	override def paramTypes = List()
 	
-	override def returnType: Option[String] = {
+	override def returnType: Option[String] =
+	{
 		val t = getType(field, receiverType)
 		Some(t)
 	}
 	
 	override def declaringType = field.getDeclaringClass.getName
-		
+	
 	override def methodName = field.getName
 	
-	override def signature = receiverType.getName+"."+field.getName
+	override def signature = receiverType.getName + "." + field.getName
 	
 	override def isStatic = Modifier.isStatic(field.getModifiers)
 	

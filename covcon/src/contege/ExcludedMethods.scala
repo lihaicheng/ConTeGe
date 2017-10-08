@@ -7,6 +7,7 @@ object ExcludedMethods {
 	val methods = Set[String]()
 
 	// methods that block until they can return something -- lead to too many timeouts
+	//方法阻塞，直到它们返回某个值——导致超时
 	methods.add("public java.lang.Object java.util.concurrent.ArrayBlockingQueue.take() throws java.lang.InterruptedException")
 	methods.add("public void java.util.concurrent.ArrayBlockingQueue.put(java.lang.Object) throws java.lang.InterruptedException")
 	methods.add("public java.lang.Object java.util.concurrent.LinkedBlockingDeque.take() throws java.lang.InterruptedException")

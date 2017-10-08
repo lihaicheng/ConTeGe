@@ -8,7 +8,7 @@ import java.io.PrintStream
 import java.io.File
 import contege.seqgen.TypedParameter
 
-class Config(val cut: String, // class under test
+class Config(val cut: String, // class under test,cut是用val修饰的所以在类体之外是可见的
 		            val seed: Int, val maxSuffixGenTries: Int,
 		            val selectedCUTMethodsForSuffix: Option[ArrayList[String]],
 		            val workingDir: File,

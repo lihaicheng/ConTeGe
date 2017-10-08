@@ -9,8 +9,11 @@ import java.util.Collections
 import contege._
 import contege.seqgen._
 import contege.seqexec._
-
+import scala.collection.mutable.Map
 import clinitrewriter.Clinit
+import contege.ClassTester.getClass
+import java.lang.reflect.Field
+import java.io._
 
 /**
  * Executes tests reflectively.
@@ -107,7 +110,7 @@ class SequenceExecutor(stats: Stats, config: Config) {
 				}
 			}
 		}
-		val t3 = new Thread() {
+		/*val t3 = new Thread() {
 			override def run {
 				try {
 					val msg = suffix1.execute(var2ObjectT1)
@@ -126,22 +129,43 @@ class SequenceExecutor(stats: Stats, config: Config) {
 					case e: Throwable => unexpectedException = Some(e)
 				}
 			}
-		}
+		}*/
 
 		t1.start
 		t2.start
-		t3.start
-		t4.start
+		//t3.start
+		//t4.start
 		t1.join
 		t2.join
-		t3.join
-		t4.join
+		//t3.join
+		//t4.join
 
 		// propagate unexpected exceptions (e.g. violations of assertions in ConTeGe) to the main thread
 		if (unexpectedException.isDefined) throw unexpectedException.get
 		
 		if (!result.isEmpty) stats.failedConcRuns.incr
 		else stats.succeededConcRuns.incr
+		
+		//var stationTemp = Map[String,String]()
+		//var station1 = Map[String,Map[String,String]]()
+		//print(config.cut)
+		/*val pw = new PrintWriter(new File("/home/hclee/testKV.txt"))
+		pw.write("测试一下得到了什么\n")
+		pw.write(config.cut + "\n")
+		var cla = Class.forName(config.cut, true, getClass.getClassLoader)
+		var fies = cla.getFields()
+		
+		for(f <- fies)
+		{
+			stationTemp(f.getName) = f.get(cla).toString
+			station1(config.cut) = stationTemp
+			pw.write("这也是个测试" + f.getName + " " + f.get(cla).toString + "\n")
+		}
+		
+		
+		
+		pw.write("测试一下得到了什么")
+		pw.close()*/
 		
 		result
 		

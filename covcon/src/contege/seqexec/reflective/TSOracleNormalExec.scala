@@ -93,7 +93,7 @@ class TSOracleNormalExec(finalizer: Finalizer, concRunRepetitions: Int,
 					}
 				}
 			}
-			else
+			/*else
 			{
 				// one or two exceptions during concurrent execution
 				// try sequential interleavings to see if we can trigger the same exception that way
@@ -149,7 +149,7 @@ class TSOracleNormalExec(finalizer: Finalizer, concRunRepetitions: Int,
 						finalizer.finalizeAndExit(true)
 					}
 				}
-			}
+			}*/
 			
 		}
 	}
