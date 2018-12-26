@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="bis">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/BufferedInputStream/jar/bis.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

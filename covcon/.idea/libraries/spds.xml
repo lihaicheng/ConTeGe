@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="spds">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/SharedPoolDataSource/jar/spds.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

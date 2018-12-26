@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="clinit2">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/SynchronizedMap/lib/clinit.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

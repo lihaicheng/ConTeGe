@@ -1,6 +1,6 @@
 package contege
 import java.io.PrintWriter
-
+// 你可以定义一个抽象类，它定义了一些方法但没有实现他们。取而代之的是有扩展抽象类的子类定义这些方法。
 abstract class CheckerListener {
   
   def updateNbGeneratedTests(nb: Long)

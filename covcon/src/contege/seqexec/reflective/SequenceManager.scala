@@ -11,6 +11,7 @@ import contege.Finalizer
 /**
  * Remembers which sequences have been executed to avoid
  * re-executing them.
+ * 记住执行了哪些序列以避免重新执行它们。
  */
 class SequenceManager(val seqExecutor: SequenceExecutor, config: Config, finalizer: Finalizer) {
 

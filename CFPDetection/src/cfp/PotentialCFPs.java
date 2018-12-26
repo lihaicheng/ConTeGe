@@ -11,6 +11,7 @@ import cfp.helper.bean.CoveredTried;
 
 /**
  * The class initializes potCFP map which maps the CFP to its tried and covered count
+ * 类初始化potCFP映射，该映射将CFP映射到其尝试的和覆盖的计数
  * 
  * @author Ankit
  *
@@ -22,6 +23,7 @@ public class PotentialCFPs {
 
 	/**
 	 * Accepts all the methods separated by @ and initializes the map with 
+	 * 接受@分隔的所有方法，并用
 	 * Key - method 
 	 * Value - as its tried and covered count (initially zero)
 	 * @param cutMethods

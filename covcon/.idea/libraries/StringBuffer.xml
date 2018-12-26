@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="StringBuffer">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/StringBuffer/jar/StringBuffer.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

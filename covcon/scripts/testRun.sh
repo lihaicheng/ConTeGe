@@ -153,18 +153,24 @@ gen_report_file() {
 
 
 run_script () { 
+  # 记录测试次数
   c=1
+  # 测试用例目录
   benchmarkDir=$1
+  # 测试名
   testToExecute=$2
+  # 最大运行次数
   maxRuns=$3
+  # 报告文件名
   reportFile=$4 
-
+  # 当前时间
   currTime=$(date +%s)
-
+  # 记录了一个类名，什么意思
   cut=`cat ${benchmarkDir}/cut.txt`
 
   while [ $c -le $maxRuns ]
   do
+    # 种子？应该是想要产生随机性
     seed=$(( (c-1)*100 ))
     ./scripts/testCUTuntilBugFound.sh ${benchmarkDir} $seed $c ${reportFile} ${testToExecute} ${maxRuns} $archiveDir
     c=$((c + 1))
@@ -173,6 +179,7 @@ run_script () {
   gen_report_file $reportFile $testToExecute
 }
 
+# 获得时间戳，用来设置文件夹名
 time=$(date +%s)
 archiveDir="res/$time"
 mkdir -p "report/$time"
@@ -180,6 +187,7 @@ mkdir -p "$archiveDir"
 reportFile="report/$time/report.csv" 
 
 echo "Version@CUT@CUT Methods@Potential CFPs@Run@TimeTaken(s)@Exception@GeneratedTests@GenerationTime(ms)@ConcurrentExecutionTime(ms)@CFPTime(ms)@InterleavingTime(ms)@InterleavingTests@FailedTests@BuggyCFP1@BuggyCFP2@BuggyCFPTryCount@StateChangerCount" >> ${reportFile}
+echo "版本@CUT@CUT 方法@潜在的 CFPs@Run@花费时间(s)@异常@生成的测试@生成时间(ms)@并发执行时间(ms)@CFP时间(ms)@交错时间(ms)@交错测试@测试失败@(bug)BuggyCFP1@(bug)BuggyCFP2@(bug)BuggyCFP尝试计数@状态改变计数" >> ${reportFile}
 
 benchmarkDirParent="benchmarks/instrumented"
 

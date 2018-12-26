@@ -15,7 +15,7 @@ import cfp.helper.bean.FileBean;
 /**
  * 
  * Class which detects which CFP have executed concurrently in an execution(s)
- * 
+ * 类，该类用于检测在执行中哪个CFP已同时执行
  * @author Ankit
  * 
  */
@@ -35,7 +35,7 @@ public class CFPDetection {
 
 	/**
 	 * Detects which CFP executed concurrently.
-	 * 
+	 * 检测哪个CFP并发执行。
 	 * @param fileStart
 	 */
 	public void detectCFP(String fileStart, String dirName) {
@@ -48,6 +48,7 @@ public class CFPDetection {
 
 		// Get all trace records from each file and populate fileRecords and
 		// lastRecordPerFile
+		// 保存过滤掉对应于顺序执行的结束记录后的所有跟踪记录
 		BufferedReader br = null;
 		File folder = new File("." + File.separator + dirName);
 		File[] listOfFiles = folder.listFiles();
@@ -87,6 +88,7 @@ public class CFPDetection {
 
 			// Populate traceRecordArray after filtering the records with
 			// greater timestamp than the second-last thread in execution
+			// 在使用比执行中的倒数第二个线程更大的时间戳筛选记录之后，填充traceRecordArray
 			if (lastRecordPerFile.size() > 1) {
 				Collections.sort(lastRecordPerFile);
 				int secondLastTS = lastRecordPerFile.get(lastRecordPerFile
@@ -118,6 +120,7 @@ public class CFPDetection {
 		delete("." + File.separator + "Instrument_Traces");
 
 		// Detect which CFPs executed concurrently
+		// 检测并发执行哪些cfp
 		if (traceRecordArray != null) {
 			for (FileBean fileBean : traceRecordArray) {
 				if (fileBean != null) {
@@ -128,6 +131,7 @@ public class CFPDetection {
 						// Check which all methods in other threads are
 						// currently executing and increment covered counter for
 						// them
+						// 检查其他线程中的哪些方法当前正在执行，并为它们增加覆盖计数器
 						for (String threadIdKey : runningThreadMap.keySet()) {
 							if (!(threadIdKey.equals(threadId))) {
 								for (String methodNameMap : runningThreadMap
@@ -166,6 +170,7 @@ public class CFPDetection {
 
 						// Add the current trace record method to
 						// runningThreadMap
+						// 将当前跟踪记录方法添加到runningThreadMap
 						LinkedList<String> listTmp = runningThreadMap
 								.get(threadId);
 						listTmp.add(methodName);
@@ -175,6 +180,7 @@ public class CFPDetection {
 					if ("End method".equals(desc)) {
 						// Delete the current trace record method from
 						// runningThreadMap
+						// 从runningThreadMap中删除当前跟踪记录方法
 						LinkedList<String> listTmp = runningThreadMap
 								.get(threadId);
 						listTmp.removeLastOccurrence(methodName);
@@ -187,6 +193,7 @@ public class CFPDetection {
 
 	/**
 	 * Deletes all trace files in dir
+	 * 删除目录中的所有跟踪文件
 	 * 
 	 * @param dir
 	 */

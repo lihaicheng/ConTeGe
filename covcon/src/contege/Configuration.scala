@@ -23,9 +23,11 @@ class Config(val cut: String, // class under test,cut是用val修饰的所以在
 	val shareOnlyCUTObject = false
 	
 	val useJPFFirst = false
-
+	
+	//Nil是一个空的List，定义为List[Nothing]
 	private var checkerListenersVar: List[CheckerListener] = Nil
 	def addCheckerListener(l: CheckerListener) = {
+		//:: 该方法被称为cons，意为构造，向队列的头部追加数据，创造新的列表。用法为 x::list,其中x为加入到头部的元素，无论x是列表与否，它都只将成为新生成列表的第一个元素，也就是说新生成的列表长度为list的长度＋1(btw, x::list等价于list.::(x))
 	  checkerListenersVar = l :: checkerListenersVar
 	}
 	def checkerListeners = checkerListenersVar

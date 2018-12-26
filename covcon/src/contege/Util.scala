@@ -14,7 +14,9 @@ object Util {
 		val r = new BufferedReader(new FileReader(classesFileName))
 		var className = r.readLine
 		while (className != null) {
+			//利用反射，根据类名生成类
 			val cls = Class.forName(className, true, putClassLoader)
+			//将含有公共方法的类记录
 			if (Modifier.isPublic(cls.getModifiers)) envTypes.add(className)
 			className = r.readLine
 		}		

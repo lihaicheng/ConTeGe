@@ -204,39 +204,50 @@ object ClassTester extends Finalizer
 		val seedBase = args(2).toInt
 		val maxSuffixGenTries = args(3).toInt
 		val callClinit = args(5).toBoolean
+		// 根据文件名读取方法名
 		val selectedCUTMethods: Option[ArrayList[String]] = if (args.size == 7) Some(readMethods(args(6)))
 		else None
+		// isDefined 如果可选值是 Some 的实例返回 true，否则返回 false。
 		if (selectedCUTMethods.isDefined) println("Focusing on " + selectedCUTMethods.get.size + " CUT methods")
 		else println("No specific CUT methods selected")
 		config = new Config(cut, seedBase, maxSuffixGenTries, selectedCUTMethods, new File("/tmp/"), callClinit)
 		//cut作为参数创建了config
 		val resultFileName = args(4)
+		// 对报告文件监听，如果改变了，貌似要写日志，所以没什么重要性
 		config.addCheckerListener(new ResultFileCheckerListener(resultFileName))
 		
 		val envTypes = new ArrayList[String]
 		envTypes.add("java.lang.Object")
+		// 记录含有public方法的类
 		Util.addEnvTypes(args(1), envTypes, this.getClass.getClassLoader)
 		
+		// 打印日志，记录开机时间
 		stats = new Stats
+		// finalizeAndExit处停止
 		stats.timer.start("all")
-		
+
+		// 类加载
 		val typeProvider = new TypeManager(config.cut, envTypes, getClass.getClassLoader, new Random(seedBase))
-		
+		// 记住执行了哪些序列以避免重新执行它们。
 		val seqMgr = new SequenceManager(new SequenceExecutor(stats, config), config, this)
 		
 		val global = new GlobalState(config, typeProvider, seqMgr, stats, new Random(seedBase), this)
 		
 		// Deadlock Detection
+		// 死锁检测
 		val dlMonitor = new DeadlockMonitor(config, global)
 		dlMonitor.setDaemon(true)
 		dlMonitor.start
 		
 		// Initialize Potential CFPs
+		// 初始化潜在的CFP
 		stats.timer.start("pot_cfp")
+		// 读取方法、构造函数和类的字段
 		val cutMethods = new ClassReader(Class.forName(cut, true, getClass.getClassLoader)).readMethodAtoms
 		//这里的参数只是一个普通对象，并非一个在后边要使用的对象
 		println("CUTMethods Size - " + cutMethods.size)
 		val potentialCFPs = new PotentialCFPs();
+		// 接受了一个参数列表，形成一个map映射
 		potentialCFPs.writePotentialCFPs(cutMethods.mkString("@"))
 		//potentialCFPs.writePotentialCFPs("java16.lang.StringBuffer.insert(int,java.lang.CharSequence)@java16.lang.StringBuffer.deleteCharAt(int)")
 		stats.timer.stop("pot_cfp")
@@ -244,6 +255,7 @@ object ClassTester extends Finalizer
 		var seed = seedBase;
 		
 		// Get next CFP from prioritizer and run test
+		// 从优先级排序器中获取下一个CFP并运行测试
 		val nextCFP = new NextCFP();
 		while (true)
 		{

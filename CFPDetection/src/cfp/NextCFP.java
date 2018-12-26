@@ -25,6 +25,7 @@ public class NextCFP {
 
 	/**
 	 * Random prioritizer which selects CFPs randomly from the potNext
+	 * 随机排序器，从potNext中随机选择CFPs
 	 * 
 	 * @param concRunRepetitions
 	 * @return seed for next try

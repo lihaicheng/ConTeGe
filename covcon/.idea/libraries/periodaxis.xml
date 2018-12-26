@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="periodaxis">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/PeriodAxis/jar/periodaxis.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

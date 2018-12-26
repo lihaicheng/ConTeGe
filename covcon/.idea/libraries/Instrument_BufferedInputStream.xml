@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Instrument_BufferedInputStream">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/BufferedInputStream/Instrument_BufferedInputStream.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

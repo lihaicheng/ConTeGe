@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="logger">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/Logger/jar/logger.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

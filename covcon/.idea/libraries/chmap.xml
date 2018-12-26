@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="chmap">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/benchmarks/instrumented/ConcurrentHashMap/jar/chmap.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
