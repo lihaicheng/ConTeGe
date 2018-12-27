@@ -45,6 +45,7 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
     private val prefix2SuffixGen = Map[Prefix, SuffixGen]()
     private val prefix2Suffixes = Map[Prefix, ArrayList[Suffix]]()
 
+    // envTypes 包含java.lang.Object和env_types.txt里的类名，还有cut，也就是被测试类
     private val typeProvider = new TypeManager(config.cut, envTypes, putClassLoader, random)
 
     private val seqMgr = new SequenceManager(new SequenceExecutor(stats, config), config, finalizer)
@@ -67,9 +68,15 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
         dlMonitor.start
 
         var nbGeneratedTests = 0L
+        // 全部更新成0？
+        // updateNbGeneratedTests是一个空函数，也就是什么也没做
+        // 这里想要干啥？？？
         config.checkerListeners.foreach(l => l.updateNbGeneratedTests(nbGeneratedTests))
 
+        // 如果maxSuffixGenTries的值到现在没有改变，那么现在还是从参数传入的值
         for (suffixGenTries <- 1 to config.maxSuffixGenTries) { // generate call sequences
+            println("打个点，看看执行到哪了")
+            println("顺便看看config.maxSuffixGenTries变不变" + config.maxSuffixGenTries)
             stats.timer.start("gen")
             val prefix = getPrefix
             stats.timer.stop("gen")
@@ -80,6 +87,7 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
             stats.timer.start("gen")
             val nextSuffixOpt = suffixGen.nextSuffix(cutCallsPerSeq)
             stats.timer.stop("gen")
+            println("打个点，看看执行到哪了，是否经过Sequences crashes")
             nextSuffixOpt match {
                 case Some(suffix) => {
                     assert(suffix.length > 0)

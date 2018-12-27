@@ -10,6 +10,7 @@ abstract class CheckerListener {
    * to users.
    * (Not for debugging output,
    * not for reporting details about a bug found.)
+   * 检查器的一些输出可能会引起用户的兴趣。(不是用于调试输出，也不是用于报告发现的错误的详细信息。)
    */
   def appendStatusMsg(s: String)
   

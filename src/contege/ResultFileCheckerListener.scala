@@ -20,6 +20,7 @@ class ResultFileCheckerListener(fileName: String) extends CheckerListener {
   }
 
   // ignore everything that is not result-related
+  // 忽略与结果无关的一切
   def updateNbGeneratedTests(nb: Long) = {}
   def appendStatusMsg(s: String) = {}
 

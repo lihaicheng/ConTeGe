@@ -30,6 +30,7 @@ class TypeManager(cut: String, envClasses: Seq[String], val putClassLoader: Clas
 	private val type2AtomsPrecise = Map[String, ArrayList[Atom]]() // only precise matches
 	private val allClasses = new ArrayList[String]
 	allClasses.addAll(envClasses)
+	// println("测试allClasses.size： " + allClasses.size)
 	allClasses.add(cut)
 	allClasses.foreach(cls => {
 		constructors(cls).foreach(atom => if(atom.returnType.isDefined) {
