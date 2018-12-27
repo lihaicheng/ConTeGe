@@ -1,5 +1,9 @@
 .settings
+.idea
+*.iml
+src/META-INF
 bin
+out
 *.swp
 *~
 .scala_dependencies
