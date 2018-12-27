@@ -185,6 +185,7 @@ object ClassTester extends Finalizer {
         val selectedCUTMethods: Option[ArrayList[String]] = if (args.size == 7 && args(6)!="-1") Some(readMethods(args(6))) else None
         if (selectedCUTMethods.isDefined) println("Focusing on "+selectedCUTMethods.get.size+" CUT methods")
         else println("No specific CUT methods selected")
+        // 输出了"No specific CUT methods selected"，因为只有6个参数
         config = new Config(cut, seed, maxSuffixGenTries, selectedCUTMethods, new File("/tmp/"), callClinit)
         val random = new Random(seed)
 

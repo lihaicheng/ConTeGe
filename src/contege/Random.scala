@@ -5,8 +5,10 @@ import java.util.{Random => JRandom}
 import java.util.ArrayList
 
 // makes the whole process deterministic to allow replay when the random seed is known
+// 使整个过程具有确定性，随机种子已知时允许重播
 class Random(val seed: Int) {
 
+	// 由于seed的存在，结果每次过程都是相同的
 	private var rand = new JRandom(seed)
 	
 	def nextInt(excludedMax: Int) = rand.nextInt(excludedMax)

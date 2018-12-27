@@ -11,6 +11,7 @@ bmBase="${pwd}/benchmarks/pldi2012/"
 bm="XYSeries"
 testedJar="${bmBase}/${bm}/jar/jfreechart-0.9.8_rewritten.jar"
 testedJarLibs="${bmBase}/${bm}/lib/jcommon-0.8.0.jar:${bmBase}/${bm}/clinit.jar"
+# 为什么要单独写一个文件记录其中一个类名？是因为bug将出现在这个类上吗
 testedJarEnvTypes="${bmBase}/${bm}/env_types.txt"
 
 
@@ -29,6 +30,7 @@ testedJarEnvTypes="${bmBase}/${bm}/env_types.txt"
 # 5: whether to reset static state before each test (only works when classes have been instrumented with ClinitRewriter)
 
 seed=3
+# 如何理解这里赋值为100？
 maxSuffixGenTries=100
 
 cmd="java -cp ${contegeLibs}:${contege}:${contegeOwnLibs}:${testedJar}:${testedJarLibs} contege.ClassTester org.jfree.data.XYSeries ${testedJarEnvTypes} ${seed} ${maxSuffixGenTries} result.out false"
