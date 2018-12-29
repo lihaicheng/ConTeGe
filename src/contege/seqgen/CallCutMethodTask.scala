@@ -16,6 +16,8 @@ import contege.GlobalState
 /**
  * Add a call of a CUT method and (if necessary)
  * calls to get arguments for the CUT call.
+ * 添加对CUT方法的调用，并(如果需要)调用以获取CUT调用的参数。
+ * 用来生成后缀的
  */
 class CallCutMethodTask(suffix: Suffix,
 						cutMethods: Seq[MethodAtom],

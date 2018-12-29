@@ -15,7 +15,9 @@ class Config(val cut: String, // class under test
 		            val callClinit: Boolean) {
 	
 	def maxPrefixes = {
-		var result = maxSuffixGenTries / 20 // try to create 20 suffixes for each prefix
+		// try to create 20 suffixes for each prefix
+		// 尝试为每个前缀创建20个后缀
+		var result = maxSuffixGenTries / 20 
 		if (result < 1) result = 1
 		result
 	}

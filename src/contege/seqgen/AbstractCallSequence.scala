@@ -61,7 +61,9 @@ abstract class AbstractCallSequence[MyType](global: GlobalState) {
 	def varsOfType(typ: String) = type2Vars(typ)
 		
 	def execute(var2Object: Map[Variable, Object]): Option[Throwable] = {
+		
 		def obj(v: Variable): Object = v match {
+			// c : 基本类型或字符串
 			case c: Constant => c.value
 			case NullConstant => null
 			case _ => var2Object(v)
@@ -237,6 +239,7 @@ abstract class AbstractCallSequence[MyType](global: GlobalState) {
 		} else return true
 	}
 	
+	// 是否等价？
 	def equivalentTo(that: AbstractCallSequence[_]): Boolean
 	
 	protected def addCallsAndAdaptType(newType: String, result: AbstractCallSequence[_], cutVariable: Variable) = {

@@ -17,6 +17,9 @@ import contege.GlobalState
  * Finds a variable of the given type.
  * If necessary, appends calls to the sequence to create such a variable.
  * Possibly uses some variable already in the given sequence. 
+ * 查找给定类型的变量。
+ * 如有需要，追加对序列的调用以创建此类变量。
+ * 可能已经在给定的序列中使用了某个变量。
  */
 class GetParamTask[CallSequence <: AbstractCallSequence[CallSequence]](seqBefore: CallSequence, typ: String,
          nullAllowed: Boolean, global: GlobalState)

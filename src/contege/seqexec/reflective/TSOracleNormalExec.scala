@@ -23,8 +23,12 @@ class TSOracleNormalExec(finalizer: Finalizer, concRunRepetitions: Int,
             stats.timer.start("conc_exec")
             val concExecExceptions = executor.executeConcurrently(prefix, suffix1, suffix2)
             stats.timer.stop("conc_exec")
-            if (!concExecExceptions.isEmpty) { // one or two exceptions during concurrent execution
+            if (!concExecExceptions.isEmpty) { 
+                // one or two exceptions during concurrent execution
                 // try sequential interleavings to see if we can trigger the same exception that way
+                // 在并发执行期间有一两个异常
+                // 试试顺序交错，看看是否可以用这种方式触发相同的异常
+                println("发现异常，准备顺序执行")
                 stats.timer.start("interleavings")
                 val interleavings = new SequentialInterleavings(prefix, suffix1, suffix2)
                 var failedSequentially = false

@@ -47,6 +47,7 @@ class Prefix(global: GlobalState) extends AbstractCallSequence[Prefix](global) {
     }
 	
 	override def equivalentTo(other: AbstractCallSequence[_]): Boolean = {
+		// println("打个点，看看执行到哪了，经过Sequences crashes几次？")
 		if (!other.isInstanceOf[Prefix]) return false
 		val that = other.asInstanceOf[Prefix] 
 		if (this.cutVariable == null || that.cutVariable == null) return false

@@ -17,6 +17,7 @@ import contege.GlobalState
  * Adds a CUT call to a suffix. Before using this task, the
  * PrepareCUTCallTask must prepare it by adding calls to the prefix 
  * that provide all required arguments.
+ * 将CUT调用添加到后缀。在使用此任务之前，PrepareCUTCallTask必须通过向提供所有必需参数的前缀添加调用来准备它。
  */
 class AppendPreparedCUTCallTask(suffix: Suffix,
 		                        method: MethodAtom,

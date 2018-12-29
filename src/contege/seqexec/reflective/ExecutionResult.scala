@@ -2,6 +2,7 @@ package contege.seqexec.reflective
 
 /**
  * Result of executing an Atom reflectively.
+ * 反射地执行一个原子的结果。
  */
 abstract class ExecutionResult
 

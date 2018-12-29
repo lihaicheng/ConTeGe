@@ -17,6 +17,7 @@ import contege.MethodAtom
 /**
  * Calls a method on a given variable
  * (hoping that the call influences the state of the receiver object).
+ * 对给定变量调用方法(希望调用会影响接收方对象的状态)。
  */
 class StateChangerTask(prefix: Prefix,
                        global: GlobalState) extends Task[Prefix](global) {

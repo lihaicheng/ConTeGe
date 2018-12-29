@@ -26,6 +26,8 @@ class SequenceManager(val seqExecutor: SequenceExecutor, config: Config, finaliz
 								   
 	def checkAndRemember(sequence: AbstractCallSequence[_]): Boolean = {
 		// do we know the sequence already?
+		// 我们已经知道这个序列了吗?
+		// 需要判断这个序列是成功序列还是失败序列的一个
 		if (okSequences.exists(oldSeq => sequence.equivalentTo(oldSeq))) {
 		    succeedingSeqs += 1
 			return true

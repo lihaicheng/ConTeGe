@@ -18,6 +18,7 @@ import contege.seqexec.reflective.TimeoutRunner
 
 /**
  * Action to be executed (e.g., a method call or a field access).
+ * 要执行的操作(例如，方法调用或字段访问)。
  */
 abstract class Atom(val receiverType: Class[_]) {
 

@@ -41,7 +41,10 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
 //    private val concRunRepetitions = 1000
 //    private val maxStateChangersInPrefix = 5
 
-    private val prefixes = new ArrayList[Prefix] // kept separately to ensure deterministic random selection of one
+
+    // kept separately to ensure deterministic random selection of one
+    // 分开保存，保证随机选择的确定性
+    private val prefixes = new ArrayList[Prefix] 
     private val prefix2SuffixGen = Map[Prefix, SuffixGen]()
     private val prefix2Suffixes = Map[Prefix, ArrayList[Suffix]]()
 
@@ -76,18 +79,23 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
         // 如果maxSuffixGenTries的值到现在没有改变，那么现在还是从参数传入的值
         for (suffixGenTries <- 1 to config.maxSuffixGenTries) { // generate call sequences
             println("打个点，看看执行到哪了")
-            println("顺便看看config.maxSuffixGenTries变不变" + config.maxSuffixGenTries)
+            println("顺便看看suffixGenTries和config.maxSuffixGenTries变不变" + suffixGenTries + "、" + config.maxSuffixGenTries)
             stats.timer.start("gen")
+            // 前缀生成
             val prefix = getPrefix
+            println("打个点，看看执行到哪了，是否经过new prefix")
             stats.timer.stop("gen")
 
+            // 后缀生成类，用来生成后缀
             val suffixGen = prefix2SuffixGen(prefix)
+            // 后缀集合，现在刚创建应当为空
             val suffixes = prefix2Suffixes(prefix)
 
             stats.timer.start("gen")
+            // cutCallsPerSeq值为2，为什么是2？
             val nextSuffixOpt = suffixGen.nextSuffix(cutCallsPerSeq)
             stats.timer.stop("gen")
-            println("打个点，看看执行到哪了，是否经过Sequences crashes")
+            
             nextSuffixOpt match {
                 case Some(suffix) => {
                     assert(suffix.length > 0)
@@ -95,13 +103,14 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
                         suffixes += suffix
                         println("New suffix \n" + suffix)
                         // run the new sequences against all existing sequences and again itself
+                        // 对所有现有序列运行新序列，并再次对其本身运行
                         suffixes.foreach(otherSuffix => {
                             nbGeneratedTests += 1
                             config.checkerListeners.foreach(l => l.updateNbGeneratedTests(nbGeneratedTests))
                             println("Nb generated tests: " + nbGeneratedTests)
 
                             finalizer.currentTest = Some(TestPrettyPrinter.javaCodeFor(prefix, suffix, otherSuffix, "GeneratedTest", TestPrettyPrinter.NoOutputVectors))
-
+                            // 下边就是测试部分
                             tsOracle.analyzeTest(prefix, suffix, otherSuffix)
                         })
                     }
@@ -118,16 +127,33 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
     }
 
     private def getPrefix: Prefix = {
+        // try to create a new prefix
+        // 
+        // 如果prefixes没有达到上限，尝试创建一个新的前缀，InstantiateCutTask
         if (prefixes.size < config.maxPrefixes) { // try to create a new prefix
             new InstantiateCutTask(global).run match {
                 case Some(prefix) => {
                     prefix.fixCutVariable
                     assert(prefix.types.contains(config.cut), prefix.types)
-                    if (prefixes.exists(oldPrefix => prefix.equivalentTo(oldPrefix))) { // we re-created an old prefix, return a random existing prefix 
+                    
+                    // 判断是否有参数和prefix等价
+                    // 如果等价修改prefixes的大小
+                    if (prefixes.exists(oldPrefix => prefix.equivalentTo(oldPrefix))) { 
+
+                        // we re-created an old prefix, return a random existing prefix 
+                        // 我们重新创建了一个旧的前缀，返回一个随机的现有前缀
+
+                        //exists会执行n次？
+
+                        //在判断过程中发生了Sequences crashes
                         return prefixes(random.nextInt(prefixes.size))
                     } else {
+                        // 所有参数和prefix都不等价
+
+                        // 扩展prefix，扩展了什么？
                         val extendedPrefix = appendStateChangers(prefix)
                         prefixes.add(extendedPrefix)
+                        
                         prefix2SuffixGen.put(extendedPrefix, new SuffixGen(extendedPrefix, maxSuffixLength, global))
                         prefix2Suffixes.put(extendedPrefix, new ArrayList[Suffix]())
                         println("New prefix:\n" + extendedPrefix)
@@ -149,15 +175,25 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
 
     private def appendStateChangers(prefix: Prefix) = {
         var currentSequence = prefix
+        // 从1到5
         for (_ <- 1 to maxStateChangersInPrefix) {
             val stateChangerTask = new StateChangerTask(currentSequence, global)
             stateChangerTask.run match {
+                // extendedSequence的类型应当是stateChangerTask.run 的返回值类型CallSequence
                 case Some(extendedSequence) => {
+                    // println("打个点，看看执行到哪了，currentSequence被赋值几次？")
+                    
                     currentSequence = extendedSequence
+                    println("想看看currentSequence每次的值是什么" + extendedSequence)
+                    // 每次都在叠加，而不是修改，很有意思，可能不是叠加，而是extendedSequence每次都在修改
+                    // 果然，是extendedSequence每次都在修改
+                    // 说明stateChangerTask.run在修改extendedSequence的值
+
                 }
                 case None => // ignore
             }
         }
+        // 只返回最后一次的结果？
         currentSequence
     }
 }
