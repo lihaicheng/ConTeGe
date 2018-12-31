@@ -67,6 +67,7 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
 			stats.timer.start("gen")
 			//生成prefix
 			val prefix = getPrefix
+			println("看看prefix长什么样：" + prefix);
 			stats.timer.stop("gen")
 			
 			if (prefix == null)
@@ -104,7 +105,7 @@ class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, put
 							config.checkerListeners.foreach(l => l.updateNbGeneratedTests(nbGeneratedTests))
 							println("Nb generated tests: " + nbGeneratedTests)
 							finalizer.currentTest = Some(TestPrettyPrinter.javaCodeFor(prefix, suffix, otherSuffix, "GeneratedTest", TestPrettyPrinter.NoOutputVectors))
-							
+							println("看看suffix、otherSuffix长什么样：" + suffix + "、" + otherSuffix);
 							tsOracle.analyzeTest(prefix, suffix, otherSuffix)
 							
 							stats.timer.start("cfp_det")

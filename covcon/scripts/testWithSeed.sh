@@ -27,5 +27,6 @@ fi
 2>&1
 
 mainClass="contege.ClassTester"
-
+echo "判断是否经过java前"
 java -cp ${covconLibs}:${covcon}:${covconOwnLibs}:${bmJar}:${bmLib} ${mainClass} ${cut} ${envTypes} ${seed} ${maxSuffixGenTries} results/${cut}_seed${seed}_tries${maxSuffixGenTries}.result false ${selectedCutMethods} > results/${cut}_seed${seed}_tries${maxSuffixGenTries}.out
+echo "判断是否经过java后"
