@@ -193,7 +193,7 @@ benchmarkDirParent="benchmarks/instrumented"
 
 # Format
 # run_script <benchmark_dir> <benchmark_name> <number of runs> <report file>
-run_script "$benchmarkDirParent/XYSeries/" "XYSeries" 10 $reportFile
+#run_script "$benchmarkDirParent/XYSeries/" "XYSeries" 10 $reportFile
 #run_script "$benchmarkDirParent/BufferedInputStream/" "BufferedInputStream" 10 $reportFile
 #run_script "$benchmarkDirParent/PeriodAxis/" "PeriodAxis" 10 $reportFile
 #run_script "$benchmarkDirParent/Day/" "Day" 10 $reportFile
@@ -206,6 +206,6 @@ run_script "$benchmarkDirParent/XYSeries/" "XYSeries" 10 $reportFile
 #run_script "$benchmarkDirParent/Logger/" "Logger" 10 $reportFile
 #run_script "$benchmarkDirParent/SynchronizedMap/" "SynchronizedMap" 10 $reportFile
 #run_script "$benchmarkDirParent/ConcurrentHashMap/" "ConcurrentHashMap" 10 $reportFile
-#run_script "$benchmarkDirParent/StringBuffer/" "StringBuffer" 10 $reportFile
+run_script "$benchmarkDirParent/StringBuffer/" "StringBuffer" 15 $reportFile
 
 
