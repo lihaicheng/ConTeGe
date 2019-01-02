@@ -82,6 +82,7 @@ public class NextCFP {
 			Random random = new Random();
 			index = random.nextInt(potNext.size());
 			cfpString = potNext.remove(index);
+			System.out.println("没有重新选择cfp");
 		} else {
 			// Prioritize all CFPs
 			int potCFPSize = PotentialCFPs.potCFP.size();
@@ -114,6 +115,16 @@ public class NextCFP {
 					return arg0[0].compareTo(arg1[0]);
 				}
 			});
+			/*if (cfpScore[0][0].intValue() > 30) {
+				return -9999999;
+			}*/
+			System.out.println("看看下一步的分数都是多少？前iwanttoseethescore");
+			System.out.println(cfpScore[0][0].intValue());
+			/*for (int k = 0 ; k < i ; k++)
+			{
+				System.out.println(cfpScore[k][0] + "、" + cfpScore[k][1]);
+			}*/
+			System.out.println("看看下一步的分数都是多少？后");
 			sizeofPriortizerList = (potCFPSize < (sizeofPriortizerList * 4)) ? Math
 					.max((potCFPSize / 4), 1) : sizeofPriortizerList;
 			// Add n cfps to potNext with least score
@@ -143,7 +154,7 @@ public class NextCFP {
 
 	/**
 	 * Choose the prioritizer for prioritizing
-	 * 
+	 * 选择优先排序器
 	 * @param concRunRepetitions
 	 * @param priortizer
 	 * @param sizeofPriortizerList
@@ -153,9 +164,13 @@ public class NextCFP {
 			int sizeofPriortizerList) {
 		switch (priortizer) {
 		case 1:
-			return random(concRunRepetitions);
+			int ran = random(concRunRepetitions);
+			System.out.println("排序器的返回值（随机）：" + ran);
+			return ran;
 		case 2:
-			return enhancedCovTried(concRunRepetitions, sizeofPriortizerList);
+			int enhancedCovTried = enhancedCovTried(concRunRepetitions, sizeofPriortizerList);
+			System.out.println("排序器的返回值（enhancedCovTried）：" + enhancedCovTried);
+			return enhancedCovTried;
 		default:
 			return enhancedCovTried(concRunRepetitions, sizeofPriortizerList);
 		}

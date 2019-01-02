@@ -1,15 +1,37 @@
 package contege
 
-import cfp.{CFPDetection, NextCFP, PotentialCFPs}
-import contege.seqexec.jpf.{JPFFirstSequenceExecutor, TSOracleJPFFirst}
-import contege.seqexec.reflective.{SequenceExecutor, SequenceManager, TSOracleNormalExec}
-import contege.seqexec.{DeadlockMonitor, TestPrettyPrinter}
-import contege.seqgen._
-import java.io.{BufferedReader, File, FileReader}
-import java.util.{ArrayList, Date}
-import javamodel.util.TypeResolver
+import java.io.BufferedReader
+import java.io.ByteArrayOutputStream
+import java.io.FileReader
+import java.io.PrintStream
+import java.lang.reflect.InvocationTargetException
+import java.util.ArrayList
+import java.util.Date
 import scala.collection.JavaConversions._
 import scala.collection.mutable.Map
+import scala.collection.mutable.Set
+import contege.seqexec.DeadlockMonitor
+import contege.seqgen.InstantiateCutTask
+import contege.seqgen.Prefix
+import contege.seqgen.StateChangerTask
+import contege.seqgen.Suffix
+import contege.seqgen.SuffixGen
+import contege.seqgen.TypeManager
+import javamodel.util.TypeResolver
+import contege.seqexec.TestPrettyPrinter
+import contege.seqexec.jpf.JPFFirstSequenceExecutor
+import contege.seqexec.jpf.TSOracleJPFFirst
+import java.io.File
+import contege.seqexec.reflective.TSOracleNormalExec
+import contege.seqexec.reflective.SequenceManager
+import contege.seqexec.reflective.SequenceExecutor
+import cfp.PotentialCFPs
+import cfp.NextCFP
+import cfp.CFPDetection
+import java.util.Calendar
+import contege.seqgen.TypeManager
+import contege.seqexec.reflective.SequenceManager
+import scala.util.control.Breaks._
 
 class ClassTester(config: Config, stats: Stats, putClassLoader: ClassLoader, putJarPath: String, envTypes: ArrayList[String],
                   random: Random, finalizer: Finalizer, cutMethodsToTest1: Seq[MethodAtom], cutMethodsToTest2: Seq[MethodAtom], seed: Int, seedPrefix: Map[String, Prefix], typeProvider: TypeManager, cutCallsPerSeq: Int)
@@ -258,10 +280,22 @@ object ClassTester extends Finalizer
 		// Get next CFP from prioritizer and run test
 		// 从优先级排序器中获取下一个CFP并运行测试
 		val nextCFP = new NextCFP();
+		//var flag = true;
 		while (true)
 		{
 			stats.timer.start("next_cfp")
-			seed = nextCFP.writeNextCFP(concRunRepetitions, 2, 100) + seedBase;
+			var seed_for_next_try = nextCFP.writeNextCFP(concRunRepetitions, 2, 100);
+			/*
+			接下来要实现跳出的思路
+			seed_for_next_try为负值，结束循环
+			*/
+			/*if (seed_for_next_try == -9999999)
+			{
+				break;
+			}*/
+
+			seed = seed_for_next_try + seedBase;
+			
 			val nextCFPMethod1 = getMethodAtom(NextCFP.nextCFPMethod1, cutMethods)
 			val nextCFPMethod2 = getMethodAtom(NextCFP.nextCFPMethod2, cutMethods)
 			stats.timer.stop("next_cfp")
