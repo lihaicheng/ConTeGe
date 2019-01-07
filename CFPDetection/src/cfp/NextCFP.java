@@ -115,9 +115,9 @@ public class NextCFP {
 					return arg0[0].compareTo(arg1[0]);
 				}
 			});
-			/*if (cfpScore[0][0].intValue() > 30) {
+			if (cfpScore[0][0].intValue() > 36) {
 				return -9999999;
-			}*/
+			}
 			System.out.println("看看下一步的分数都是多少？前iwanttoseethescore");
 			System.out.println(cfpScore[0][0].intValue());
 			/*for (int k = 0 ; k < i ; k++)
@@ -148,7 +148,6 @@ public class NextCFP {
 		BigInteger coveredCnt = cv.getCovered();
 		PotentialCFPs.potCFP.put(cfpDetails[0], new CoveredTried(coveredCnt,
 				triedCnt));
-
 		return triedCnt.intValue();
 	}
 
