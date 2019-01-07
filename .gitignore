@@ -8,3 +8,9 @@ results/*
 SeqTeGeTest.*
 jarExportForNainom.jardesc
 testSeqTeGe.sh
+*.iml
+*.jar
+.idea
+.project
+out
+covcon/ownLibs

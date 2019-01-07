@@ -113,12 +113,16 @@ public class NextCFP {
 					return arg0[0].compareTo(arg1[0]);
 				}
 			});
+
 			sizeofPriortizerList = (potCFPSize < (sizeofPriortizerList * 4)) ? Math
 					.max((potCFPSize / 4), 1) : sizeofPriortizerList;
 			// Add n cfps to potNext with least score
+			System.out.println("iwantto看一下目前最小分数是多少,开始：");
 			for (int ind = 0; ind < sizeofPriortizerList; ind++) {
+				System.out.println("iwantto看一下目前最小分数是多少：" + cfpScore[ind][0]);
 				potNext.add(cfp[cfpScore[ind][1].intValue()]);
 			}
+			System.out.println("iwantto看一下目前最小分数是多少,结束：");
 			cfpString = potNext.remove(new Random().nextInt(potNext.size()));
 		}
 
