@@ -18,6 +18,9 @@ import contege.SequentialInterleavings
  * to avoid running JPF if seq. execution already fails.
  * Runs JPF with a timeout and reports "don't know" (None) if JPF doesn't
  * terminate before the timeout.
+ * 建模检查并发测试的健壮方法。在调用JPF之前，
+ * 尝试按顺序运行所有线性化，以避免在seq中运行JPF。
+ * 执行已经失败。运行带有超时的JPF，如果在超时之前JPF没有终止，则报告“不知道”(None)。
  * 
  */
 class RobustConcJPFExecutor(global: GlobalState, putJarPath: String, returnOutputVectors: Boolean) {
@@ -32,6 +35,9 @@ class RobustConcJPFExecutor(global: GlobalState, putJarPath: String, returnOutpu
      * because the test fails sequentially).
      * Second part of returned pair: Set of output vectors, or None if the run was inconclusive or
      * if returnOutputVectors was set to false.
+     * 返回对的第一部分:获取的错误(空集表示没有错误)，
+     * 如果结果未知，则为None(例如，由于超时或测试顺序失败)。
+     * 返回对的第二部分:输出向量的集合，如果运行不确定或returnOutputVectors设置为false则为None。
      */
     def executeConcurrently(prefix: Prefix,
 							suffix1: Suffix,
