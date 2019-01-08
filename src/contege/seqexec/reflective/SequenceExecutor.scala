@@ -14,6 +14,7 @@ import clinitrewriter.Clinit
 
 /**
  * Executes tests reflectively.
+ * 反射的执行测试
  */
 class SequenceExecutor(stats: Stats, config: Config) {
 
@@ -63,6 +64,7 @@ class SequenceExecutor(stats: Stats, config: Config) {
 	
 	/**
 	 * Returns None if the execution passes and a message containing the reason for failure otherwise.
+	 * 如果执行通过，则返回None，否则返回一条包含失败原因的消息。
 	 */
 	def executeConcurrently(prefix: Prefix,
 							suffix1: Suffix,
