@@ -289,10 +289,10 @@ object ClassTester extends Finalizer
 			接下来要实现跳出的思路
 			seed_for_next_try为负值，结束循环
 			*/
-			if (seed_for_next_try == -9999999)
+			/*if (seed_for_next_try == -9999999)
 			{
 				break;
-			}
+			}*/
 
 			seed = seed_for_next_try + seedBase;
 			
