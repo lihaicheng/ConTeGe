@@ -14,3 +14,5 @@ testSeqTeGe.sh
 .project
 out
 covcon/ownLibs
+covcon/*.iml
+covcon/out
