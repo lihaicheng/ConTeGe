@@ -11,6 +11,10 @@ import cfp.helper.bean.CoveredTried;
 
 public class NextCFP {
 
+	public static int f1 = 0;
+
+	public static int f2 = 0;
+
 	/** First method in the pair */
 	public static String nextCFPMethod1 = null;
 
@@ -45,6 +49,14 @@ public class NextCFP {
 		CoveredTried cv = PotentialCFPs.potCFP.get(cfpString);
 		BigInteger triedCnt = cv.getTried().add(BigInteger.ONE);
 		BigInteger coveredCnt = cv.getCovered();
+		int fcnt = coveredCnt.intValue();
+		if (fcnt == 0)
+		{
+			f1++;
+		}
+		else if (fcnt == 1) {
+			f2++;
+		}
 		PotentialCFPs.potCFP.put(cfpString, new CoveredTried(coveredCnt,
 				triedCnt));
 
@@ -146,6 +158,13 @@ public class NextCFP {
 
 		BigInteger triedCnt = cv.getTried().add(BigInteger.ONE);
 		BigInteger coveredCnt = cv.getCovered();
+		if (fcnt == 0)
+		{
+			f1++;
+		}
+		else if (fcnt == 1) {
+			f2++;
+		}
 		PotentialCFPs.potCFP.put(cfpDetails[0], new CoveredTried(coveredCnt,
 				triedCnt));
 		return triedCnt.intValue();

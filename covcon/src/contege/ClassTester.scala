@@ -301,6 +301,11 @@ object ClassTester extends Finalizer
 			stats.timer.stop("next_cfp")
 			if (nextCFPMethod1 != null && nextCFPMethod2 != null)
 			{
+				var n = PotentialCFPs.potCFP.size()
+				var f1 = NextCFP.f1
+				var f2 = NextCFP.f2
+				var cn = 1 - (f1/n) * ((n-1)*f1 / ((n-1)*f1 + 2*f2))
+				println("输出覆盖度Cn = " + cn)
 				val cutMethodsToTest1 = Seq(nextCFPMethod1, nextCFPMethod2)
 				val cutMethodsToTest2 = Seq(nextCFPMethod2, nextCFPMethod1)
 				var random: Random = null
