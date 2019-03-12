@@ -20,6 +20,8 @@ import scala.collection.mutable.Set
  * Central point to load classes under test (and helper classes to use the classes under test).
  * Always uses the putClassLoader, which may impose a stronger security policy
  * than the standard class loader.
+ * 中心点加载cut(以及帮助类使用测试下的类)。
+ * 总是使用putClassLoader，它可能比标准的类装入器强加更强的安全策略。
  * 
  */
 class TypeManager(cut: String, envClasses: Seq[String], val putClassLoader: ClassLoader, random: Random) {

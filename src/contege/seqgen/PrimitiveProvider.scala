@@ -4,6 +4,7 @@ import contege.Random
 
 /**
  * Provides random values for primitive types.
+ * 为基本类型提供随机值。
  */
 class PrimitiveProvider(random: Random) {
 

@@ -7,6 +7,9 @@ import java.lang.reflect._
  * Reads methods, constructors, and fields of a class,
  * ignoring all members that can't be called in a generated test
  * (i.e., only public, non-abstract etc. members are considered).
+ * 读取类的方法、构造函数和字段，
+ * 忽略在生成的测试中不能调用的所有成员
+ * (即。，只考虑公共、非抽象等成员)。
  */
 class ClassReader(val cls: Class[_]) {
 	

@@ -30,9 +30,11 @@ do
   echo "Seed: ${seed}, maxSuffixGenTries: ${maxSuffixGenTries}"
 
   ./scripts/testWithSeed.sh $seed $maxSuffixGenTries $benchmarkDir
-  
+  # 文件行数
   wc=`wc -l results/${cut}_seed${seed}_tries${maxSuffixGenTries}.result`
+  # 按“ ”（空格）分割，取第一部分数据
   lines=`echo ${wc} | cut -d" " -f1`
+  # 行数大于2？发现bug
   if [ $lines -gt "2" ]
   then
     echo "Found BUG! Stopping to test."
