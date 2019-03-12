@@ -158,6 +158,7 @@ public class NextCFP {
 
 		BigInteger triedCnt = cv.getTried().add(BigInteger.ONE);
 		BigInteger coveredCnt = cv.getCovered();
+		int fcnt = coveredCnt.intValue();
 		if (fcnt == 0)
 		{
 			f1++;
