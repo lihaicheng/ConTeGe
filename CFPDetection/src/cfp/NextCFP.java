@@ -150,14 +150,15 @@ public class NextCFP {
 	 */
 	public int writeNextCFP(int concRunRepetitions, int priortizer,
 			int sizeofPriortizerList) {
-		switch (priortizer) {
+		return random(concRunRepetitions);
+		/*switch (priortizer) {
 		case 1:
 			return random(concRunRepetitions);
 		case 2:
 			return enhancedCovTried(concRunRepetitions, sizeofPriortizerList);
 		default:
 			return enhancedCovTried(concRunRepetitions, sizeofPriortizerList);
-		}
+		}*/
 
 	}
 }
