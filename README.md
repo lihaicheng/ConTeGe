@@ -1,3 +1,5 @@
+使用说明：
+原始的程序实际上没有办法直接运行，经过修改，可以在根目录下运行 ./scripts/measureTimeToBug.sh 
 ConTeGe
 =======
 
