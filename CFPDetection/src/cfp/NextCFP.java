@@ -55,6 +55,7 @@ public class NextCFP {
 			f1++;
 		}
 		else if (fcnt == 1) {
+			f1--;
 			f2++;
 		}
 		PotentialCFPs.potCFP.put(cfpString, new CoveredTried(coveredCnt,
@@ -181,7 +182,10 @@ public class NextCFP {
 	 */
 	public int writeNextCFP(int concRunRepetitions, int priortizer,
 			int sizeofPriortizerList) {
-		switch (priortizer) {
+		int ran = random(concRunRepetitions);
+		System.out.println("排序器的返回值（随机）：" + ran);
+		return ran;
+		/*switch (priortizer) {
 		case 1:
 			int ran = random(concRunRepetitions);
 			System.out.println("排序器的返回值（随机）：" + ran);
@@ -192,7 +196,7 @@ public class NextCFP {
 			return enhancedCovTried;
 		default:
 			return enhancedCovTried(concRunRepetitions, sizeofPriortizerList);
-		}
+		}*/
 
 	}
 }
