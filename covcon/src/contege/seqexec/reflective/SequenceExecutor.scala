@@ -110,7 +110,7 @@ class SequenceExecutor(stats: Stats, config: Config) {
 				}
 			}
 		}
-		val t3 = new Thread() {
+		/*val t3 = new Thread() {
 			override def run {
 				try {
 					val msg = suffix1.execute(var2ObjectT1)
@@ -130,15 +130,15 @@ class SequenceExecutor(stats: Stats, config: Config) {
 				}
 			}
 		}
-
+*/
 		t1.start
 		t2.start
-		t3.start
-		t4.start
+		//t3.start
+		//t4.start
 		t1.join
 		t2.join
-		t3.join
-		t4.join
+		//t3.join
+		//t4.join
 
 		// propagate unexpected exceptions (e.g. violations of assertions in ConTeGe) to the main thread
 		if (unexpectedException.isDefined) throw unexpectedException.get
