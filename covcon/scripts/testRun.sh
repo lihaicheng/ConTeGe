@@ -196,6 +196,7 @@ benchmarkDirParent="benchmarks/instrumented"
 run_script "$benchmarkDirParent/SynchronizedMap/" "SynchronizedMap" 10 $reportFile
 run_script "$benchmarkDirParent/ConcurrentHashMap/" "ConcurrentHashMap" 10 $reportFile
 run_script "$benchmarkDirParent/StringBuffer/" "StringBuffer" 10 $reportFile
+run_script "$benchmarkDirParent/XYPlot/" "XYPlot" 10 $reportFile
 run_script "$benchmarkDirParent/XYSeries/" "XYSeries" 10 $reportFile
 run_script "$benchmarkDirParent/BufferedInputStream/" "BufferedInputStream" 10 $reportFile
 run_script "$benchmarkDirParent/PeriodAxis/" "PeriodAxis" 10 $reportFile
@@ -205,7 +206,6 @@ run_script "$benchmarkDirParent/PerUserPoolDataSource/" "PerUserPoolDataSource" 
 run_script "$benchmarkDirParent/SharedPoolDataSource/" "SharedPoolDataSource" 10 $reportFile
 run_script "$benchmarkDirParent/XStream/" "XStream" 10 $reportFile
 run_script "$benchmarkDirParent/TimeSeries/" "TimeSeries" 10 $reportFile
-run_script "$benchmarkDirParent/XYPlot/" "XYPlot" 10 $reportFile
 run_script "$benchmarkDirParent/Logger/" "Logger" 10 $reportFile
 
 
