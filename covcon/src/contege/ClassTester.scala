@@ -285,7 +285,7 @@ object ClassTester extends Finalizer
 		var f1:Double = 0
 		var f2:Double = 0
 		var cn:Double = 0
-		val timeflag:Long = 0
+		var timeflag:Long = 0
 		while (true)
 		{
 			stats.timer.start("next_cfp")
