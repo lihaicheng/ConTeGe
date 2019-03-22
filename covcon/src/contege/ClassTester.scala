@@ -282,6 +282,10 @@ object ClassTester extends Finalizer
 		val nextCFP = new NextCFP();
 		//var flag = true;
 		var n:Double = 0
+		var f1:Double = 0
+		var f2:Double = 0
+		var cn:Double = 0
+		val timeflag:Long = 0
 		while (true)
 		{
 			stats.timer.start("next_cfp")
@@ -294,6 +298,15 @@ object ClassTester extends Finalizer
 			{
 				break;
 			}*/
+			/*
+			接下来要实现跳出的思路
+			当覆盖度超过37%，结束循环
+			*/
+			if (cn > 0.37)
+			{
+				break;
+			}
+
 
 			seed = seed_for_next_try + seedBase;
 			
@@ -306,11 +319,11 @@ object ClassTester extends Finalizer
 				n = n + 1
 				if (n > 1)
 				{
-					var f1:Double = NextCFP.f1
-					var f2:Double = NextCFP.f2
-					var cn:Double = 1 - (f1/n) * (n-1)*f1 / ((n-1)*f1 + 2*f2)
+					f1 = NextCFP.f1
+					f2 = NextCFP.f2
+					cn = 1 - (f1/n) * (n-1)*f1 / ((n-1)*f1 + 2*f2)
 					println("输出覆盖度Cn = " + cn)
-					val timeflag = (System.currentTimeMillis - startTime) / 1000
+					timeflag = (System.currentTimeMillis - startTime) / 1000
 					println("经历时间（s）：" + timeflag)
 				}
 				val cutMethodsToTest1 = Seq(nextCFPMethod1, nextCFPMethod2)

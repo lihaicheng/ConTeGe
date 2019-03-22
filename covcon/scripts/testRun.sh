@@ -167,12 +167,31 @@ run_script () {
   currTime=$(date +%s)
   # 记录了一个类名，什么意思
   cut=`cat ${benchmarkDir}/cut.txt`
+  #检测到bug的次数
+  b=0
 
-  while [ $c -le $maxRuns ]
+  while [ $b -le $maxRuns ]
   do
     # 种子？应该是想要产生随机性
     seed=$(( (c-1)*100 ))
-    ./scripts/testCUTuntilBugFound.sh ${benchmarkDir} $seed $c ${reportFile} ${testToExecute} ${maxRuns} $archiveDir
+    #传入参数 $1 benchmarkDir目录 $2 seed $3 c $4 reportFile $5 testToExecute $6 maxRuns $7 archiveDir
+    #新的传入参数 $1 benchmarkDir目录 $2 seed $3 c $4 reportFile $5 testToExecute $6 maxRuns $7 archiveDir 
+    ./scripts/testCUTuntilBugFound.sh ${benchmarkDir} $seed $c ${reportFile} ${testToExecute} ${maxRuns} $archiveDir ${cut} $b
+    wc=`wc -l results/${cut}_seed${seedBase}_tries${maxSuffixGenTries}.result`
+    lines=`echo ${wc} | cut -d" " -f1`
+
+    mv results/${cut}_seed${seedBase}_tries${maxSuffixGenTries}.result $archiveDir/${cut}_seed${seedBase}_tries${maxSuffixGenTries}_count${c}_${timeStart}.result
+    mv results/${cut}_seed${seedBase}_tries${maxSuffixGenTries}.out $archiveDir/${cut}_seed${seedBase}_tries${maxSuffixGenTries}_count${c}_${timeStart}.out
+
+    if [ "$lines" -gt "2" ]
+    then
+      echo "Found BUG! Stopping to test."
+      # exit 0
+      b=$((b + 1))
+    else
+      echo "         ... nothing"
+    fi
+
     c=$((c + 1))
   done
 
@@ -193,20 +212,20 @@ benchmarkDirParent="benchmarks/instrumented"
 
 # Format
 # run_script <benchmark_dir> <benchmark_name> <number of runs> <report file>
-run_script "$benchmarkDirParent/SynchronizedMap/" "SynchronizedMap" 10 $reportFile
-run_script "$benchmarkDirParent/ConcurrentHashMap/" "ConcurrentHashMap" 10 $reportFile
-run_script "$benchmarkDirParent/StringBuffer/" "StringBuffer" 10 $reportFile
-run_script "$benchmarkDirParent/XYPlot/" "XYPlot" 10 $reportFile
+#run_script "$benchmarkDirParent/SynchronizedMap/" "SynchronizedMap" 10 $reportFile
+#run_script "$benchmarkDirParent/ConcurrentHashMap/" "ConcurrentHashMap" 10 $reportFile
+#run_script "$benchmarkDirParent/StringBuffer/" "StringBuffer" 10 $reportFile
+#run_script "$benchmarkDirParent/XYPlot/" "XYPlot" 10 $reportFile
 run_script "$benchmarkDirParent/XYSeries/" "XYSeries" 10 $reportFile
-run_script "$benchmarkDirParent/BufferedInputStream/" "BufferedInputStream" 10 $reportFile
-run_script "$benchmarkDirParent/PeriodAxis/" "PeriodAxis" 10 $reportFile
-run_script "$benchmarkDirParent/Day/" "Day" 10 $reportFile
-run_script "$benchmarkDirParent/NumberAxis/" "NumberAxis" 10 $reportFile
-run_script "$benchmarkDirParent/PerUserPoolDataSource/" "PerUserPoolDataSource" 10 $reportFile
-run_script "$benchmarkDirParent/SharedPoolDataSource/" "SharedPoolDataSource" 10 $reportFile
-run_script "$benchmarkDirParent/XStream/" "XStream" 10 $reportFile
-run_script "$benchmarkDirParent/TimeSeries/" "TimeSeries" 10 $reportFile
-run_script "$benchmarkDirParent/Logger/" "Logger" 10 $reportFile
+#run_script "$benchmarkDirParent/BufferedInputStream/" "BufferedInputStream" 10 $reportFile
+#run_script "$benchmarkDirParent/PeriodAxis/" "PeriodAxis" 10 $reportFile
+#run_script "$benchmarkDirParent/Day/" "Day" 10 $reportFile
+#run_script "$benchmarkDirParent/NumberAxis/" "NumberAxis" 10 $reportFile
+#run_script "$benchmarkDirParent/PerUserPoolDataSource/" "PerUserPoolDataSource" 10 $reportFile
+#run_script "$benchmarkDirParent/SharedPoolDataSource/" "SharedPoolDataSource" 10 $reportFile
+#run_script "$benchmarkDirParent/XStream/" "XStream" 10 $reportFile
+#run_script "$benchmarkDirParent/TimeSeries/" "TimeSeries" 10 $reportFile
+#run_script "$benchmarkDirParent/Logger/" "Logger" 10 $reportFile
 
 
 
