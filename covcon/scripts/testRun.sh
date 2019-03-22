@@ -135,15 +135,26 @@ gen_report_file() {
 
   done < $reportFile
 
-  timeTakenAvg=$(bc <<< "scale=2; $timeTakenSum/$maxRuns")
-  genTestsAvg=$(bc <<< "scale=2; $genTestsSum/$maxRuns")
-  genTimeAvg=$(bc <<< "scale=2; $genTimeSum/$maxRuns")
-  concTimeAvg=$(bc <<< "scale=2; $concTimeSum/$maxRuns")
-  cfpTimeAvg=$(bc <<< "scale=2; $cfpTimeSum/$maxRuns")
-  intTimeAvg=$(bc <<< "scale=2; $intTimeSum/$maxRuns")
-  intCountAvg=$(bc <<< "scale=2; $intCountSum/$maxRuns")
-  failedCountAvg=$(bc <<< "scale=2; $failedCountSum/$maxRuns")
-  tryCountAvg=$(bc <<< "scale=2; $tryCountSum/$maxRuns")
+#  timeTakenAvg=$(bc <<< "scale=2; $timeTakenSum/$maxRuns")
+#  genTestsAvg=$(bc <<< "scale=2; $genTestsSum/$maxRuns")
+#  genTimeAvg=$(bc <<< "scale=2; $genTimeSum/$maxRuns")
+#  concTimeAvg=$(bc <<< "scale=2; $concTimeSum/$maxRuns")
+#  cfpTimeAvg=$(bc <<< "scale=2; $cfpTimeSum/$maxRuns")
+#  intTimeAvg=$(bc <<< "scale=2; $intTimeSum/$maxRuns")
+#  intCountAvg=$(bc <<< "scale=2; $intCountSum/$maxRuns")
+#  failedCountAvg=$(bc <<< "scale=2; $failedCountSum/$maxRuns")
+#  tryCountAvg=$(bc <<< "scale=2; $tryCountSum/$maxRuns")
+
+  runtimes=$((c - 1))
+  timeTakenAvg=$(bc <<< "scale=2; $timeTakenSum/$runtimes")
+  genTestsAvg=$(bc <<< "scale=2; $genTestsSum/$runtimes")
+  genTimeAvg=$(bc <<< "scale=2; $genTimeSum/$runtimes")
+  concTimeAvg=$(bc <<< "scale=2; $concTimeSum/$runtimes")
+  cfpTimeAvg=$(bc <<< "scale=2; $cfpTimeSum/$runtimes")
+  intTimeAvg=$(bc <<< "scale=2; $intTimeSum/$runtimes")
+  intCountAvg=$(bc <<< "scale=2; $intCountSum/$runtimes")
+  failedCountAvg=$(bc <<< "scale=2; $failedCountSum/$runtimes")
+  tryCountAvg=$(bc <<< "scale=2; $tryCountSum/$runtimes")
 
   echo "$toolName@"$testToExecute"@@@Max@"$timeTakenMax"@@"$genTestsMax"@"$genTimeMax"@"$concTimeMax"@"$cfpTimeMax"@"$intTimeMax"@"$intCountMax"@"$failedCountMax"@@@"$tryCountMax"@" >> ${reportFile}
   echo "$toolName@"$testToExecute"@@@Min@"$timeTakenMin"@@"$genTestsMin"@"$genTimeMin"@"$concTimeMin"@"$cfpTimeMin"@"$intTimeMin"@"$intCountMin"@"$failedCountMin"@@@"$tryCountMin"@" >> ${reportFile}
@@ -171,7 +182,7 @@ run_script () {
   b=0
   maxSuffixGenTries="10"
 
-  while [ $b -le $maxRuns ]
+  while [ $b -lt $maxRuns ]
   do
     # 种子？应该是想要产生随机性
     seedBase=$(( (c-1)*100 ))

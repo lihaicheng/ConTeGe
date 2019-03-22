@@ -15,7 +15,7 @@ cut=$8
 b=$9
 b=$((b + 1))
 echo "检测第 ("${b}"/"${maxRuns}")个bug"
-echo "Testing ${cut} until a bug is found ("${c}"/"${maxRuns}")"
+echo "Testing ${cut} until a bug is found ("${c}")"
 # 最大后缀（生成）/（根）尝试
 maxSuffixGenTries="10"
 # 起始时间
