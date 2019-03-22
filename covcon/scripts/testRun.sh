@@ -169,14 +169,15 @@ run_script () {
   cut=`cat ${benchmarkDir}/cut.txt`
   #检测到bug的次数
   b=0
+  maxSuffixGenTries="10"
 
   while [ $b -le $maxRuns ]
   do
     # 种子？应该是想要产生随机性
-    seed=$(( (c-1)*100 ))
+    seedBase=$(( (c-1)*100 ))
     #传入参数 $1 benchmarkDir目录 $2 seed $3 c $4 reportFile $5 testToExecute $6 maxRuns $7 archiveDir
     #新的传入参数 $1 benchmarkDir目录 $2 seed $3 c $4 reportFile $5 testToExecute $6 maxRuns $7 archiveDir 
-    ./scripts/testCUTuntilBugFound.sh ${benchmarkDir} $seed $c ${reportFile} ${testToExecute} ${maxRuns} $archiveDir ${cut} $b
+    ./scripts/testCUTuntilBugFound.sh ${benchmarkDir} $seedBase $c ${reportFile} ${testToExecute} ${maxRuns} $archiveDir ${cut} $b
     wc=`wc -l results/${cut}_seed${seedBase}_tries${maxSuffixGenTries}.result`
     lines=`echo ${wc} | cut -d" " -f1`
 
